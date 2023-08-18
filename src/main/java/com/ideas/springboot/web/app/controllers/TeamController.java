@@ -32,7 +32,7 @@ public class TeamController {
         return "verdetalleclima";
       }
     
-    @GetMapping("buscarclima")
+    @GetMapping("")
     public String buscarclima(Map<String, Object> model) {
         return "buscarclima";
       }
