@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class TeamResponse {
-    
+
 	 private LocationDTO location;
 	 private CurrentDTO current;
 

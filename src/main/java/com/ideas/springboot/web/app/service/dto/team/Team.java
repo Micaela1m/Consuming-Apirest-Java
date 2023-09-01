@@ -1,6 +1,7 @@
 package com.ideas.springboot.web.app.service.dto.team;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data

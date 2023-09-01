@@ -1,6 +1,5 @@
 package com.ideas.springboot.web.app.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +8,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.ideas.springboot.web.app.service.dto.team.TeamResponse;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Service
 public class TeamServiceImpl extends AbstractClient implements TeamService {
@@ -16,8 +17,8 @@ public class TeamServiceImpl extends AbstractClient implements TeamService {
     public TeamServiceImpl(RestTemplate restTemplate) {
         super(restTemplate);
     }
-    
-    
+
+
     @Override
     public TeamResponse buscarClima(String region) {
         String uri = baseUrl;
@@ -29,7 +30,7 @@ public class TeamServiceImpl extends AbstractClient implements TeamService {
         if (respuesta.getStatusCode().is2xxSuccessful()) {
             return respuesta.getBody();
         }
-       
+
         throw new RuntimeException("Error");
     }
 
