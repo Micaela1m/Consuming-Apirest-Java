@@ -1,6 +1,5 @@
 package com.ideas.springboot.web.app.service.dto.team;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,11 +9,23 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table (name = "Datosclima")
+@Table (name = "datosclima")
 public class Datosclima {
 
+
+	public Datosclima(Long id, String name, String region, String country, double temp_C, double temp_f) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.region = region;
+		this.country = country;
+		Temp_C = temp_C;
+		Temp_f = temp_f;
+	}
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 
 	private String name;

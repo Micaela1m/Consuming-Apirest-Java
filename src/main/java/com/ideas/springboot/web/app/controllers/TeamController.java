@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ideas.springboot.web.app.service.DatosclimaService;
 import com.ideas.springboot.web.app.service.TeamService;
+import com.ideas.springboot.web.app.service.dto.team.Datosclima;
+import com.ideas.springboot.web.app.service.dto.team.DatosclimaService;
 import com.ideas.springboot.web.app.service.dto.team.TeamResponse;
 
 
@@ -20,11 +21,11 @@ public class TeamController {
 
 
     private final TeamService teamService;
-  //  private final DatosclimaService datosClima;
+    private final DatosclimaService datosClima;
 
-    public TeamController(TeamService teamService) {
+    public TeamController(TeamService teamService, DatosclimaService datosClima) {
         this.teamService = teamService;
-        //this.datosClima = datosClima;
+        this.datosClima = datosClima;
     }
 
     @GetMapping("verdetalleclima")
@@ -41,7 +42,7 @@ public class TeamController {
     public String buscarclima(@RequestParam String region, Map<String, Object> model) {
     	TeamResponse respuesta = this.teamService.buscarClima(region);
     	model.put("clima", respuesta);
-    	//datosClima.create(respuesta);
+    	datosClima.create(respuesta);
         return "verdetalleclima";
     }
 
